@@ -1,0 +1,3 @@
+db: tutorial
+db username: wolfpack
+db pwd: coldBeers
