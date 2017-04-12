@@ -11,16 +11,14 @@ var crypto = require('crypto');
 // default express dependencies
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var flash = require('express-flash');
 let config = require('./config/globals');
 
-
 var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +27,7 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 // Middleware
 app.set('port', process.env.PORT || 3001);
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,7 +52,6 @@ app.get('/login', function(req, res) {
     user: req.user
   });
 });
-
 
 passport.use(new LocalStrategy(function(username, password, done) {
   User.findOne({ username: username }, function(err, user) {
